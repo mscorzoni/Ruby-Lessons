@@ -9,10 +9,10 @@ def stock_picker(stocks)
 	stocks.each_with_index do |value, index|
 
 		stocks[index..-1].each_with_index do |value2, index2|
-			delta = (value - value2)
+			dif = (value - value2)
 
-			if delta > largest_profit
-				largest_profit = delta
+			if dif > largest_profit
+				largest_profit = dif
 				day_to_buy = index
 				day_to_sell = index2
 				value_to_buy_for = value
@@ -31,4 +31,4 @@ stock_prices = 15.times.map{Random.rand(50)}
 puts "Stock prices"
 puts stock_prices.join(',')
 
-stock_picker stock_prices
+stock_picker(stock_prices)
